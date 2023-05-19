@@ -1,7 +1,11 @@
-# This is Git's per-user configuration file.
 [user]
 	name = George Palmer-Bryant
-	email = gpalmer-bryant@ancoris.com
 
-[core]
-	hooksPath = /Users/gpalmer-bryant/Develop/githooks
+# Default git profile is the work profile
+[include]
+	path = ~/.dotfiles/gitconfig/work.conf
+# If working in the personal folder or .dotfiles use personal profile instead
+[includeIf "gitdir:~/.dotfiles/"]
+	path = ~/.dotfiles/gitconfig/personal.conf
+[includeIf "gitdir:~/Develop/personal/"]
+	path = ~/.dotfiles/gitconfig/personal.conf
