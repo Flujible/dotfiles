@@ -1,0 +1,7 @@
+# This is Git's per-user configuration file.
+[user]
+	name = George Palmer-Bryant
+	email = gpalmer-bryant@ancoris.com
+
+[core]
+	hooksPath = /Users/gpalmer-bryant/Develop/githooks
