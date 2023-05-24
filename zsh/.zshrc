@@ -1,5 +1,6 @@
 export EDITOR=nano
 export VISUAL="$EDITOR"
+export PATH=$PATH:/homebrew/bin
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/gpalmer-bryant/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gpalmer-bryant/google-cloud-sdk/path.zsh.inc'; fi
