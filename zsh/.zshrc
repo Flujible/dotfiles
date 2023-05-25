@@ -3,10 +3,18 @@ export VISUAL="$EDITOR"
 export PATH=$PATH:/homebrew/bin
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '~/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then
+    . ~/google-cloud-sdk/path.zsh.inc;
+else
+    print "Could not find gcloud path.zsh.inc"
+fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
+    . ~/google-cloud-sdk/completion.zsh.inc;
+else
+    print "Could not find gcloud completion.zsh.inc"
+fi
 
 if [ -f ~/.dotfiles/zsh/zshfunctions ]; then
     source ~/.dotfiles/zsh/zshfunctions
