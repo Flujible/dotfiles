@@ -10,3 +10,5 @@
 	path = ~/.dotfiles/gitconfig/personal.conf
 [includeIf "gitdir:~/Develop/personal/**"]
 	path = ~/.dotfiles/gitconfig/personal.conf
+[push]
+	default = simple
