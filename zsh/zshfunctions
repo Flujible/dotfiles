@@ -1,0 +1,14 @@
+function refresh {
+    local target_branch
+    if [ "$1" != "" ]
+    then
+        target_branch="$1"
+    else
+        target_branch="staging"
+    fi
+    git checkout $target_branch && git pull && git checkout -
+}
+
+function mkcd() {
+    mkdir -p "$@" && cd "$_";
+}
