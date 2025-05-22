@@ -124,4 +124,6 @@ function upgrade_and_install_pip_modules {
     pip install "$@"
 }
 
+function revert-last-commit {
+    git revert $(git rev-parse HEAD)
 }
