@@ -15,3 +15,69 @@ function refresh {
 function mkcd() {
     mkdir -p "$@" && cd "$_";
 }
+
+function switch-project {
+    local current=$(gcloud config get project)
+    local newProject=$1
+    local reauthMessage="Re-auth? (y/N)"
+    local switchProjectMessage="Switch to: $newProject? (Y/n)"
+
+    function readInput() {
+        echo $1
+        read $2
+    }
+
+    function evalReauth() {
+        case $reauth in
+        Y|y)
+            authenticate
+            ;;
+        *)
+            echo "Not re-authenticating"
+            ;;
+        esac
+    }
+
+    function authenticate() {
+        echo "Re-authenticating..."
+        gcloud auth login
+        gcloud auth application-default login
+    }
+
+    function switch() {
+        echo "Switching..."
+        gcloud config set project "$newProject"
+        gcloud auth application-default set-quota-project "$newProject"
+
+        if [ $? != 0 ]; then
+            echo "Project switching failed..."
+            readInput $reauthMessage reauth
+            evalReauth
+            if [ $reauth ]; then
+                switch
+            else
+                echo "Aborting."
+            fi
+        fi
+    }
+
+    echo "Current project: $current"
+    if [ $current = $newProject ]; then
+        echo "Project already selected"
+        return 0
+    fi
+
+    readInput "$switchProjectMessage" switchproj
+    readInput "$reauthMessage" reauth
+
+    evalReauth
+
+    case $switchproj in
+        Y|y|"")
+            switch
+            ;;
+        *)
+            echo "Not switching."
+            ;;
+    esac
+}
