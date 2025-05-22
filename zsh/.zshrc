@@ -1,6 +1,8 @@
 export EDITOR=nano
 export VISUAL="$EDITOR"
 export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:/usr/local/share/dotnet
+export PATH=$PATH:/Users/gpalmer-bryant/cloud-sql-proxy
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then
