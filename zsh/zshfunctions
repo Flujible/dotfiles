@@ -8,7 +8,8 @@ function refresh {
     else
         target_branch="staging"
     fi
-    git checkout $target_branch && git pull && git checkout -
+    git fetch
+    git switch $target_branch && git pull && git switch -
 }
 
 function mkcd() {
