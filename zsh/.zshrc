@@ -151,3 +151,7 @@ if [ -f "/Users/gpalmer-bryant/miniforge3/etc/profile.d/mamba.sh" ]; then
     . "/Users/gpalmer-bryant/miniforge3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
+
+
+autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /Users/gpalmer-bryant/homebrew/bin/terraform terraform
