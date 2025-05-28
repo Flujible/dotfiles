@@ -1,0 +1,129 @@
+#!/bin/zsh
+
+function refresh {
+    local target_branch
+    if [ "$1" != "" ]
+    then
+        target_branch="$1"
+    else
+        target_branch="staging"
+    fi
+    git fetch
+    git switch $target_branch && git pull && git switch -
+}
+
+function mkcd() {
+    mkdir -p "$@" && cd "$_";
+}
+
+function switch-project {
+    local current=$(gcloud config get project)
+    local newProject=$1
+    local reauthMessage="Re-auth? (y/N)"
+    local switchProjectMessage="Switch to: $newProject? (Y/n)"
+
+    function readInput() {
+        echo $1
+        read $2
+    }
+
+    function evalReauth() {
+        case $reauth in
+        Y|y)
+            authenticate
+            ;;
+        *)
+            echo "Not re-authenticating"
+            ;;
+        esac
+    }
+
+    function authenticate() {
+        echo "Re-authenticating..."
+        gcloud auth login
+        gcloud auth application-default login
+    }
+
+    function switch() {
+        echo "Switching..."
+        gcloud config set project "$newProject"
+        gcloud auth application-default set-quota-project "$newProject"
+
+        if [ $? != 0 ]; then
+            echo "Project switching failed..."
+            readInput $reauthMessage reauth
+            evalReauth
+            if [ $reauth ]; then
+                switch
+            else
+                echo "Aborting."
+            fi
+        fi
+    }
+
+    echo "Current project: $current"
+    if [ $current = $newProject ]; then
+        echo "Project already selected"
+        return 0
+    fi
+
+    readInput "$switchProjectMessage" switchproj
+    readInput "$reauthMessage" reauth
+
+    evalReauth
+
+    case $switchproj in
+        Y|y|"")
+            switch
+            ;;
+        *)
+            echo "Not switching."
+            ;;
+    esac
+}
+
+function venv {
+    local target_venv
+
+    # if $1 exists, use it, otherwise use "venv"
+    target_venv=${1:-venv}
+
+    local target_folder="./$target_venv"
+    if [ ! -d "$target_folder" ]; then
+        echo "$target_folder folder does not exist. Create? (y/N)"
+        read create_env
+
+        case $create_env in
+            Y|y)
+                echo "Creating..."
+                python3 -m venv $target_venv
+                ;;
+            *)
+                echo "Not creating venv $target_venv. Exiting."
+                return 0
+                ;;
+        esac
+    fi
+
+
+    echo "Activating..."
+    source ./$target_venv/bin/activate
+
+    upgrade_and_install_pip_modules black mypy
+}
+
+function upgrade_and_install_pip_modules {
+    echo "Upgrading pip..."
+    pip install --upgrade pip -q
+
+    echo "Installing modules:"
+    for module in "$@"; do
+        echo "- $module"
+    done
+
+    pip install "$@"
+}
+
+function revert-last-commit {
+    git revert $(git rev-parse HEAD)
+}

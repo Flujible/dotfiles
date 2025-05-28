@@ -1,0 +1,40 @@
+0000000000000000000000000000000000000000 5200a51c1b19c91531892497d9353cebb4883923 George Palmer-Bryant <gpalmer-bryant@ancoris.com> 1684492326 +0100	commit (initial): feat(initial commit): added dotfiles
+5200a51c1b19c91531892497d9353cebb4883923 5200a51c1b19c91531892497d9353cebb4883923 George Palmer-Bryant <gpalmer-bryant@ancoris.com> 1684492708 +0100	Branch: renamed refs/heads/main to refs/heads/main
+5200a51c1b19c91531892497d9353cebb4883923 a123c8a6470d921ecc2d40053eceea43990933dd George Palmer-Bryant <georgepalmerbryant@gmail.com> 1684494254 +0100	commit: feat: distinguish between personal and work projects
+a123c8a6470d921ecc2d40053eceea43990933dd a123c8a6470d921ecc2d40053eceea43990933dd George Palmer-Bryant <georgepalmerbryant@gmail.com> 1684494266 +0100	Branch: renamed refs/heads/main to refs/heads/main
+a123c8a6470d921ecc2d40053eceea43990933dd a123c8a6470d921ecc2d40053eceea43990933dd George Palmer-Bryant <georgepalmerbryant@gmail.com> 1684494572 +0100	Branch: renamed refs/heads/main to refs/heads/main
+a123c8a6470d921ecc2d40053eceea43990933dd 556aab3b70b20882c63d5a3c2f936f3c7625d180 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1684504718 +0100	commit: fix: incorrect path to zshrc
+556aab3b70b20882c63d5a3c2f936f3c7625d180 4ced1805045c55ff2c948b450eb61bbe89104fb6 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1684504862 +0100	commit: refactor: simplify zshrc
+4ced1805045c55ff2c948b450eb61bbe89104fb6 46d481f520e7d2c80d25466ccd23f1804482ccca George Palmer-Bryant <georgepalmerbryant@gmail.com> 1684946326 +0100	commit: refactor: add homebrew to path
+46d481f520e7d2c80d25466ccd23f1804482ccca fc6d2460c0633e6d871d6b4d0b6c321a8c43b93e George Palmer-Bryant <georgepalmerbryant@gmail.com> 1684946349 +0100	commit: refactor: replace directory with ~
+fc6d2460c0633e6d871d6b4d0b6c321a8c43b93e 5258a2d316fece5455eb6911554d7bc7cc02abff George Palmer-Bryant <georgepalmerbryant@gmail.com> 1684946365 +0100	commit: refactor: add omz config
+5258a2d316fece5455eb6911554d7bc7cc02abff 184f761ae58f31acf177765d07f37a6a5cd90132 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1685003877 +0100	commit: fix: bad gcloud paths
+184f761ae58f31acf177765d07f37a6a5cd90132 fc13cee5b1fbb3d6322bf0cb3511f691c194c354 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1685007310 +0100	commit: refactor: specify wildcards
+fc13cee5b1fbb3d6322bf0cb3511f691c194c354 26f0d40bdbfe13bf1522bd3f5fc778a7d3057814 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1685007327 +0100	commit: refactor: add zprofile
+26f0d40bdbfe13bf1522bd3f5fc778a7d3057814 06a770594d840de8a53fdfb28427a2c05b75ad35 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1686133261 +0100	commit: refactor: set push to simple
+06a770594d840de8a53fdfb28427a2c05b75ad35 0da8e58f12d8fcd6833e079d4c2813c979de1707 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747910827 +0100	commit: test
+0da8e58f12d8fcd6833e079d4c2813c979de1707 06a770594d840de8a53fdfb28427a2c05b75ad35 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920036 +0100	reset: moving to HEAD~
+06a770594d840de8a53fdfb28427a2c05b75ad35 be451299bc0674c929685eed95c840419a2125f1 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920197 +0100	commit: refactor: change permissions
+be451299bc0674c929685eed95c840419a2125f1 51d9165359ea5b977235f4f267de48ce5760af09 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920225 +0100	commit: refactor: added specificity
+51d9165359ea5b977235f4f267de48ce5760af09 8e16f78f37567f55abda82a59b9be3065f59337f George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920242 +0100	commit: refactor: add name and remove uneeded git hooks
+8e16f78f37567f55abda82a59b9be3065f59337f f87ec6286fe6c589dce9751689f0c4f6b1fe97a1 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920261 +0100	commit: fix name and email
+f87ec6286fe6c589dce9751689f0c4f6b1fe97a1 f4a8197b10b8055a2b8a209eda8320e4cf7281ac George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920264 +0100	commit (amend): fix: fix name and email
+f4a8197b10b8055a2b8a209eda8320e4cf7281ac 1177c106a6d4589e30e711c13a1822bf09678c25 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920289 +0100	commit (amend): fix: fix name and email
+1177c106a6d4589e30e711c13a1822bf09678c25 7998d592431447c88320ee94be282091a4b46fa7 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920357 +0100	commit: refactor: add py312 to path
+7998d592431447c88320ee94be282091a4b46fa7 fc227e1a87b2e4642df14975c805edd77d9688ba George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920395 +0100	commit: refactor: update homebrew location
+fc227e1a87b2e4642df14975c805edd77d9688ba c25f8821ee6c720913973888794ce0f3968d1b68 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920415 +0100	commit: refactor: add dotnet and cloud sql proxy
+c25f8821ee6c720913973888794ce0f3968d1b68 55f8e436f4d78b24d3e11ef9f7be6d667e14c48d George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920439 +0100	commit: refactor: add conda
+55f8e436f4d78b24d3e11ef9f7be6d667e14c48d d4ac044e3683ff726afc2b933dd07778683eb42a George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920454 +0100	commit: refactor: add terraform
+d4ac044e3683ff726afc2b933dd07778683eb42a 96c12771ccba3418fbfd0d6187ca151e646772bd George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920465 +0100	commit: refactor: add NVM
+96c12771ccba3418fbfd0d6187ca151e646772bd 8f4c0752b74e39fe0b0d1dc62613ae4eba444e92 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920478 +0100	commit: refactor: add hashbang
+8f4c0752b74e39fe0b0d1dc62613ae4eba444e92 bfd488e49d7ef1a2228d4f3c60f388df102bbb55 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920508 +0100	commit: refactor: fetch before pulling
+bfd488e49d7ef1a2228d4f3c60f388df102bbb55 dc24183f32ec75b803901df2b521c01d6ba9ab1d George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920523 +0100	commit (amend): refactor: fetch before changing branch
+dc24183f32ec75b803901df2b521c01d6ba9ab1d 8f4c0752b74e39fe0b0d1dc62613ae4eba444e92 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920542 +0100	reset: moving to HEAD~
+8f4c0752b74e39fe0b0d1dc62613ae4eba444e92 507242e93d3542a93a1de164f04021360ef818c8 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920571 +0100	commit: refactor: fetch before changing branch and change from 'checkout' to 'switch'
+507242e93d3542a93a1de164f04021360ef818c8 19f070d679f63e01acfa2ad263163e830b7db879 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920602 +0100	commit: refactor: add func to switch GCP projects
+19f070d679f63e01acfa2ad263163e830b7db879 8512e1367d3fc671babf7c10f2f029493045bd67 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920699 +0100	commit: refactor: add venv creation func
+8512e1367d3fc671babf7c10f2f029493045bd67 b5e88c6f6ba1b87d729fc62291db36a329ec2a72 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920748 +0100	commit: refactor: add function to revert last commit
+b5e88c6f6ba1b87d729fc62291db36a329ec2a72 47588a58f8f8db1f0e26a18491444643446f03ba George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920783 +0100	commit: refactor: script to mark obsidian todos as complete
+47588a58f8f8db1f0e26a18491444643446f03ba 3f9386316dcc48d5eb60a47eb6dc5a92ab4821da George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747920796 +0100	commit: refactor: rc file for taskwarrior
+3f9386316dcc48d5eb60a47eb6dc5a92ab4821da 21ef474cc26181b6f505ec5d048daec57e6da117 George Palmer-Bryant <gpalmer-bryant@ancoris.com> 1747921326 +0100	rebase (finish): refs/heads/main onto 0d47f9e279ff419e7a18f761064f4eabd4874f96
+21ef474cc26181b6f505ec5d048daec57e6da117 0beeed733d4617ba6b4d5c7940886bb7d7003815 George Palmer-Bryant <georgepalmerbryant@gmail.com> 1747921634 +0100	rebase (finish): refs/heads/main onto 8df2a32116ca50e78671751f03af4d943fb28d16

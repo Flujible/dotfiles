@@ -1,0 +1,20 @@
+refactor: rc file for taskwarrior
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Thu May 22 14:33:16 2025 +0100
+#
+# interactive rebase in progress; onto 8df2a32
+# Last commands done (28 commands done):
+#    edit 06ae35d refactor: script to mark obsidian todos as complete
+#    edit 21ef474 refactor: rc file for taskwarrior
+# No commands remaining.
+# You are currently editing a commit while rebasing branch 'main' on '8df2a32'.
+#
+# Changes to be committed:
+#	new file:   taskwarrior/.taskrc
+#
+# Untracked files:
+#	spinner.sh
+#

@@ -1,0 +1,14 @@
+[user]
+	name = George Palmer-Bryant
+	email = gpalmer-bryant@telana.com
+
+[includeIf "gitdir:~/Develop/**"]
+	path = ~/.dotfiles/gitconfig/work.conf
+# If working in the personal folder or .dotfiles use personal profile instead
+[includeIf "gitdir:~/.dotfiles/**"]
+	path = ~/.dotfiles/gitconfig/personal.conf
+[includeIf "gitdir:~/Develop/personal/**"]
+	path = ~/.dotfiles/gitconfig/personal.conf
+
+[push]
+	default = simple
