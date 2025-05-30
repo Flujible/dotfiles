@@ -35,3 +35,5 @@ context.work.read=+counselling or +work or +important
 context.work.write=+work
 uda.details.type=string
 uda.details.label=Details
+
+verbose=blank,footnote,label,new-id,new-uuid,affected,edit,special,project,sync,override,unwait,context
