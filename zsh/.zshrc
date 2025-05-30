@@ -18,12 +18,28 @@ else
     print "Could not find gcloud completion.zsh.inc"
 fi
 
-if [ -f ~/.dotfiles/zsh/zshfunctions ]; then
-    source ~/.dotfiles/zsh/zshfunctions
-else
-    print "404: ~/.dotfiles/zsh/zshfunctions not found."
-fi
+# Source all regular, non-dotfiles from the custom Zsh scripts directory.
+local zsh_custom_scripts_dir="$HOME/.dotfiles/zsh"
+setopt TYPESET_SILENT # Prevent local/typeset from printing pre-existing values
 
+if [ -d "$zsh_custom_scripts_dir" ]; then
+    for item_path in "$zsh_custom_scripts_dir"/*; do
+        local item_name
+        item_name=$(basename "$item_path")
+
+        # Condition: item is a regular file AND its name does not begin with a dot.
+        if [[ -f "$item_path" && "$item_name" != .* ]]; then
+            if [[ -r "$item_path" ]]; then # Check if readable before sourcing
+                source "$item_path"
+            else
+                print "Error: Cannot read $item_path. Not sourced."
+            fi
+        fi
+    done
+else
+    print "Error: Custom Zsh scripts directory $zsh_custom_scripts_dir not found."
+fi
+unsetopt TYPESET_SILENT # Optional: unset if you only want it for this block
 
 ######################################################################
 #
