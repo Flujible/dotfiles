@@ -5,15 +5,15 @@ function tw-switch {
     local work_task_dir="$HOME/.task"
     local target_context="$1"
     local pink_bold_style='\e[1;95m' # 1 for bold, 95 for bright magenta (pink)
-    local reset_color='\e[0m'
+    local reset_colour='\e[0m'
 
     if [[ -n "$target_context" ]]; then # Check if an argument is provided
         if [[ "$target_context" == "personal" ]]; then
             export TASKDATA="$personal_task_dir"
-            echo "Switched to Taskwarrior context: ${pink_bold_style}PERSONAL${reset_color} (TASKDATA=$TASKDATA)"
+            echo "Switched to Taskwarrior context: ${pink_bold_style}PERSONAL${reset_colour} (TASKDATA=$TASKDATA)"
         elif [[ "$target_context" == "work" ]]; then
             export TASKDATA="$work_task_dir"
-            echo "Switched to Taskwarrior context: ${pink_bold_style}WORK${reset_color} (TASKDATA=$TASKDATA)"
+            echo "Switched to Taskwarrior context: ${pink_bold_style}WORK${reset_colour} (TASKDATA=$TASKDATA)"
         else
             echo "Error: Invalid argument '$target_context'." >&2
             echo "Usage: tw-switch [personal|work]" >&2
@@ -29,10 +29,10 @@ function tw-switch {
 
         if [[ "$expanded_current_taskdata" == "$work_task_dir" ]]; then
             export TASKDATA="$personal_task_dir"
-            echo "Toggled Taskwarrior context to: ${pink_bold_style}PERSONAL${reset_color} (TASKDATA=$TASKDATA)"
+            echo "Toggled Taskwarrior context to: ${pink_bold_style}PERSONAL${reset_colour} (TASKDATA=$TASKDATA)"
         elif [[ "$expanded_current_taskdata" == "$personal_task_dir" ]]; then
             export TASKDATA="$work_task_dir"
-            echo "Toggled Taskwarrior context to: ${pink_bold_style}WORK${reset_color} (TASKDATA=$TASKDATA)"
+            echo "Toggled Taskwarrior context to: ${pink_bold_style}WORK${reset_colour} (TASKDATA=$TASKDATA)"
         else
             # Default to work if current state is unknown or unset
             export TASKDATA="$work_task_dir"
@@ -51,13 +51,13 @@ function tw-list {
     local work_task_dir="$HOME/.task"
     local output_str="Current taskwarrior DB:"
     local pink_bold_style='\e[1;95m' # 1 for bold, 95 for bright magenta (pink)
-    local reset_color='\e[0m'
+    local reset_colour='\e[0m'
 
     if [[ "$TASKDATA" == "$work_task_dir" ]]; then
-        echo "$output_str ${pink_bold_style}WORK${reset_color} ($TASKDATA)"
+        echo "$output_str ${pink_bold_style}WORK${reset_colour} ($TASKDATA)"
     elif [[ "$TASKDATA" == "$personal_task_dir" ]]; then
-        echo "$output_str ${pink_bold_style}PERSONAL${reset_color} ($TASKDATA)"
+        echo "$output_str ${pink_bold_style}PERSONAL${reset_colour} ($TASKDATA)"
     else
-        echo "$output_str ${pink_bold_style}UNKNOWN${reset_color} ($TASKDATA)"
+        echo "$output_str ${pink_bold_style}UNKNOWN${reset_colour} ($TASKDATA)"
     fi
 }
