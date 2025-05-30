@@ -35,4 +35,3 @@ context.work.read=+counselling or +work or +important
 context.work.write=+work
 uda.details.type=string
 uda.details.label=Details
-context=work
