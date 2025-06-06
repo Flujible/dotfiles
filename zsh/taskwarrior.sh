@@ -61,3 +61,51 @@ function tw-list {
         echo "$output_str ${pink_bold_style}UNKNOWN${reset_colour} ($TASKDATA)"
     fi
 }
+
+function tw-create-contexts {
+    # This script creates Taskwarrior contexts for each project,
+    # ensuring idempotency (no duplicate contexts are created).
+
+    TASKRC_PATH="$HOME/.taskrc"
+
+    echo "Starting Taskwarrior project context creation..."
+    echo "Checking projects from 'task _projects'..."
+
+    # Get all unique project names from Taskwarrior, one per line.
+    projects=$(task _projects | sort | uniq)
+
+    # Check if task _projects returned any output
+    if [[ -z "$projects" ]]; then
+    echo "No projects found in Taskwarrior. Exiting."
+    exit 0
+    fi
+
+    # Read projects line by line
+    # IFS= read -r prevents leading/trailing whitespace issues and backslash interpretation.
+    while IFS= read -r project; do
+        # Skip empty lines that might result from `task _projects` output
+        if [[ -z "$project" ]]; then
+            continue
+        fi
+
+        # Sanitize the project name for use as a context name.
+        # Replaces spaces and non-alphanumeric characters with underscores.
+        context_name=$(echo "$project" | sed 's/[^a-zA-Z0-9]/_/g')
+
+        # Construct the expected context definition string to search for in .taskrc.
+        # We look for 'context.SanitizedProjectName=project:"Original Project Name"'
+        # The `grep -F` makes it search for a fixed string, not a regex.
+        # The `grep -q` makes it quiet, only returning a status code.
+        # This check directly verifies if the exact context definition line exists in .taskrc.
+        if grep -F "context.$context_name.read=project:$project" "$HOME/.taskrc"; then
+            echo "Context (read) for project '$project' (as '$context_name') already exists. Skipping."
+        else
+            # Pipe `yes` into the command to accept all the prompts
+            echo "Adding new context for project '$project' (as '$context_name')..."
+            yes | task context define "$context_name" project:"$project"
+            echo "Context '$context_name' added successfully."
+        fi
+    done <<< "$projects" # Use a 'here string' to feed the projects variable into the while loop
+
+    echo "Taskwarrior context creation complete."
+}
