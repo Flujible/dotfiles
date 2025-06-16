@@ -109,3 +109,80 @@ function tw-create-contexts {
 
     echo "Taskwarrior context creation complete."
 }
+
+function tw-import-markdown {
+    local markdown_file="$1"
+    local pink_bold_style='\e[1;95m'
+    local reset_colour='\e[0m'
+
+    if [[ ! -f "$markdown_file" ]]; then
+        echo "Error: File '$markdown_file' does not exist." >&2
+        return 1
+    fi
+
+    # Create a temporary file to store task IDs and their indentation levels
+    local temp_file=$(mktemp)
+    local task_id_map=()
+
+    echo "Processing markdown file: ${pink_bold_style}$markdown_file${reset_colour}"
+    echo "Creating tasks..."
+
+    # First pass: Create all tasks and store their IDs
+    while IFS= read -r line; do
+        # Skip empty lines and non-bullet points
+        if [[ ! "$line" =~ ^[[:space:]]*-[[:space:]]* ]]; then
+            continue
+        fi
+
+        # Calculate indentation level (number of spaces before the bullet)
+        local indent=$(echo "$line" | sed -E 's/^([[:space:]]*)-.*/\1/' | wc -c)
+        local indent=$((indent - 1))  # Adjust for the newline character
+
+        # Extract the task description (remove the bullet and leading/trailing spaces)
+        local description=$(echo "$line" | sed -E 's/^[[:space:]]*-[[:space:]]*//')
+
+        # Create the task and store its ID
+        local task_id=$(task add "$description" | grep -o '[0-9a-f]\{8\}-[0-9a-f]\{4\}-[0-9a-f]\{4\}-[0-9a-f]\{4\}-[0-9a-f]\{12\}' | head -n1)
+        if [[ -n "$task_id" ]]; then
+            echo "$task_id:$indent" >> "$temp_file"
+            task_id_map+=("$task_id:$indent")
+            echo "Created task $task_id: $description"
+        fi
+    done < "$markdown_file"
+
+    # Second pass: Set up dependencies
+    echo "Setting up dependencies..."
+    local -a task_ids=()
+    local -a indent_levels=()
+
+    # Read the temporary file and create arrays
+    while IFS=: read -r task_id indent; do
+        task_ids+=("$task_id")
+        indent_levels+=("$indent")
+    done < "$temp_file"
+
+    # Process tasks in reverse order to set up dependencies
+    for ((i=${#task_ids[@]}-1; i>=0; i--)); do
+        local current_id="${task_ids[$i]}"
+        local current_indent="${indent_levels[$i]}"
+
+        # Look for the next task with a lower indentation level
+        for ((j=i-1; j>=0; j--)); do
+            if [[ "${indent_levels[$j]}" -lt "$current_indent" ]]; then
+                # Found a parent task, set up the dependency
+                echo "Setting dependency: task $current_id depends on task ${task_ids[$j]}"
+                task "${task_ids[$j]}" modify depends:"$current_id"
+                if [[ $? -eq 0 ]]; then
+                    echo "Successfully set dependency"
+                else
+                    echo "Failed to set dependency for task $current_id"
+                fi
+                break
+            fi
+        done
+    done
+
+    # Clean up
+    rm "$temp_file"
+    echo "Import complete!"
+}
