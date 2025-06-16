@@ -21,6 +21,8 @@ export PATH=$PATH:/Users/gpalmer-bryant/cloud-sql-proxy
 # Start shells pointing at the 'work' taskwarrior data
 export TASKDATA=~/.task
 
+export HOMEBREW_PREFIX=/opt/homebrew
+
 ######################################################################
 #
 # SSH keys
