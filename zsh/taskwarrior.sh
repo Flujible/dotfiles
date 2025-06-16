@@ -186,3 +186,41 @@ function tw-import-markdown {
     rm "$temp_file"
     echo "Import complete!"
 }
+
+function tw-remove-dependencies {
+    local pink_bold_style='\e[1;95m'
+    local reset_colour='\e[0m'
+    local filter_cmd="$1"
+
+    if [[ -z "$filter_cmd" ]]; then
+        echo "Error: No filter command provided." >&2
+        echo "Usage: tw-remove-dependencies <filter_command>" >&2
+        echo "Example: tw-remove-dependencies ''" >&2
+        echo "Example: tw-remove-dependencies 'project:Work'" >&2
+        return 1
+    fi
+
+    echo "Removing dependencies from tasks matching: ${pink_bold_style}$filter_cmd${reset_colour}"
+
+    # Get all task IDs from the filtered command
+    local task_ids=($(task $filter_cmd _ids))
+
+    if [[ ${#task_ids[@]} -eq 0 ]]; then
+        echo "No tasks found matching the filter."
+        return 0
+    fi
+
+    local count=0
+    for task_id in "${task_ids[@]}"; do
+        # Check if the task has any dependencies
+        if task "$task_id" _get depends >/dev/null 2>&1; then
+            echo "Removing dependencies from task $task_id"
+            task "$task_id" modify depends:
+            if [[ $? -eq 0 ]]; then
+                ((count++))
+            fi
+        fi
+    done
+
+    echo "Removed dependencies from ${pink_bold_style}$count${reset_colour} tasks."
+}
