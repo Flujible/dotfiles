@@ -138,15 +138,17 @@ function tw-import-markdown {
         local indent=$(echo "$line" | sed -E 's/^([[:space:]]*)-.*/\1/' | wc -c)
         local indent=$((indent - 1))  # Adjust for the newline character
 
-        # Extract the task description (remove the bullet and leading/trailing spaces)
-        local description=$(echo "$line" | sed -E 's/^[[:space:]]*-[[:space:]]*//')
+        # Extract the task description and attributes
+        local full_line=$(echo "$line" | sed -E 's/^[[:space:]]*-[[:space:]]*//')
+        local description=$(echo "$full_line" | sed -E 's/(priority:[HML]|due:[^ ]+|project:[^ ]+|\+[^ ]+)( |$)//g')
+        local attributes=$(echo "$full_line" | grep -o '\(priority:[HML]\|due:[^ ]\+\|project:[^ ]\+\|\+[^ ]\+\)' | tr '\n' ' ')
 
         # Create the task and store its ID
-        local task_id=$(task add "$description" | grep -o '[0-9a-f]\{8\}-[0-9a-f]\{4\}-[0-9a-f]\{4\}-[0-9a-f]\{4\}-[0-9a-f]\{12\}' | head -n1)
+        local task_id=$(task add "$description" $attributes | grep -o '[0-9a-f]\{8\}-[0-9a-f]\{4\}-[0-9a-f]\{4\}-[0-9a-f]\{4\}-[0-9a-f]\{12\}' | head -n1)
         if [[ -n "$task_id" ]]; then
             echo "$task_id:$indent" >> "$temp_file"
             task_id_map+=("$task_id:$indent")
-            echo "Created task $task_id: $description"
+            echo "Created task $task_id: $description ($attributes)"
         fi
     done < "$markdown_file"
 
