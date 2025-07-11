@@ -36,6 +36,7 @@ report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 
 verbose=blank,footnote,label,new-id,new-uuid,affected,edit,special,project,sync,override,unwait,context
+
 context.Certs.read=project:Certs
 context.Certs.write=project:Certs
 context.JiraBot.read=project:JiraBot
@@ -56,6 +57,10 @@ context.Billing.read=project:Billing
 context.Billing.write=project:Billing
 context.Exeter.read=project:Exeter
 context.Exeter.write=project:Exeter
+
 urgency.blocking.coefficient=1
 urgency.blocked.coefficient=-0.1
 urgency.annotations.coefficient=0
+urgency.user.tag.blocked.coefficient=-5.0
+
+color.tag.blocked=color5
