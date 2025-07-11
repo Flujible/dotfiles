@@ -32,6 +32,7 @@ export HOMEBREW_PREFIX=/opt/homebrew
 # Ensure keys are added to SSH agent
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519_personal_github
+ssh-add --apple-use-keychain ~/.ssh/id_rsa_exeter_bitbucket
 
 ######################################################################
 #
