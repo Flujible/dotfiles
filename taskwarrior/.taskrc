@@ -64,9 +64,9 @@ urgency.annotations.coefficient=0
 urgency.user.tag.blocked.coefficient=-5.0
 
 # Lower urgency for non deliverable projects
-urgency.project.Training.coefficient=-0.2
-urgency.project.Personal.coefficient=-0.2
-urgency.project.TeamStuff.coefficient=-0.2
+urgency.uda.project.Training.coefficient=-0.2
+urgency.uda.project.Personal.coefficient=-0.2
+urgency.uda.project.TeamStuff.coefficient=-0.2
 
 color.tag.blocked=color5
 color.uda.priority.H=color11
