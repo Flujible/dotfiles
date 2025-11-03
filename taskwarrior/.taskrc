@@ -67,7 +67,7 @@ urgency.uda.project.Training.coefficient=-1.0
 urgency.uda.project.Personal.coefficient=-1.0
 urgency.uda.project.TeamStuff.coefficient=-1.0
 
-color.tag.blocked=color5
+color.tag.blocked=color13
 color.uda.priority.H=color11
 color.uda.priority.M=color255
 
