@@ -61,7 +61,6 @@ context.Exeter.write=project:Exeter
 urgency.blocking.coefficient=1
 urgency.blocked.coefficient=-0.1
 urgency.annotations.coefficient=0
-urgency.user.tag.blocked.coefficient=-5.0
 
 # Lower urgency for non deliverable projects
 urgency.uda.project.Training.coefficient=-1.0
@@ -90,3 +89,9 @@ context.FortnumMason.read=project:FortnumMason
 context.FortnumMason.write=project:FortnumMason
 context.Unipart.read=project:Unipart
 context.Unipart.write=project:Unipart
+context.InvoiceAcq.read=project:InvoiceAcq
+context.InvoiceAcq.write=project:InvoiceAcq
+context.Personal.read=project:Personal
+context.Personal.write=project:Personal
+context.Training.read=project:Training
+context.Training.write=project:Training
