@@ -18,6 +18,13 @@ export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:/usr/local/share/dotnet
 export PATH=$PATH:/Users/gpalmer-bryant/cloud-sql-proxy
 
+# Source - https://stackoverflow.com/questions/10303639/adb-command-not-found
+# Posted by Denis Kutlubaev
+# Retrieved 05/11/2025, License - CC-BY-SA 4.0
+# Adds `adb` to the path
+export PATH=~/Library/Android/sdk/platform-tools:$PATH
+
+
 # Start shells pointing at the 'work' taskwarrior data
 export TASKDATA=~/.task
 
