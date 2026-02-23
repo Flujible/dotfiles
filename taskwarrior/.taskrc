@@ -30,6 +30,12 @@ uda.reviewed.label=Reviewed
 uda.details.type=string
 uda.details.label=Details
 uda.priority.default=M
+
+uda.taskwarrior-tui.shortcuts.1=~/.dotfiles/taskwarrior/task_wait_1h.sh
+uda.taskwarrior-tui.shortcuts.2=~/.dotfiles/taskwarrior/task_wait_3.5h.sh
+uda.taskwarrior-tui.shortcuts.3=~/.dotfiles/taskwarrior/task_wait_1d.sh
+
+
 report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
 report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
