@@ -171,3 +171,6 @@ export NVM_DIR="$HOME/.nvm"
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+# Added by Antigravity
+export PATH="/Users/gpalmer-bryant/.antigravity/antigravity/bin:$PATH"
