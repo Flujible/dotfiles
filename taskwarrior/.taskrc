@@ -1,5 +1,6 @@
 # [Created by task 3.4.1 5/17/2025 10:52:52]
 data.location=/Users/gpalmer-bryant/.task
+default.project=Misc
 news.version=3.4.1
 
 # To use the default location of the XDG directories,
@@ -106,3 +107,5 @@ context.Personal.read=project:Personal
 context.Personal.write=project:Personal
 context.Training.read=project:Training
 context.Training.write=project:Training
+context.Misc.read=project:Misc
+context.Misc.write=project:Misc
