@@ -31,4 +31,10 @@ else
     rm -rf "$TICKLI_TMP"
     record_build "tickli"
     echo "tickli installed to $TICKLI_INSTALL_DIR/tickli (${REMOTE_HEAD:0:8})"
+    echo ""
+    echo "To complete tickli setup:"
+    echo "  1. Add your TickTick API credentials to ~/.dotfiles/.tickli.secrets"
+    echo "     (see ~/.dotfiles/.secrets.example for the required format)"
+    echo "  2. Open a new terminal so the secrets are loaded"
+    echo "  3. Run 'tickle init' to authenticate with TickTick"
 fi
