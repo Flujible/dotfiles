@@ -28,6 +28,8 @@ export PATH=~/Library/Android/sdk/platform-tools:$PATH
 # Start shells pointing at the 'work' taskwarrior data
 export TASKDATA=~/.task
 
+export PATH=$HOME/.local/bin:$PATH
+
 export HOMEBREW_PREFIX=/opt/homebrew
 
 ######################################################################
