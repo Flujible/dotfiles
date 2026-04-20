@@ -37,4 +37,10 @@ else
     echo "     (see ~/.dotfiles/.secrets.example for the required format)"
     echo "  2. Open a new terminal so the secrets are loaded"
     echo "  3. Run 'tickle init' to authenticate with TickTick"
+    echo ""
+    if [ -f "$HOME/.dotfiles/.tickli.secrets" ]; then
+        echo "  (credentials found at ~/.dotfiles/.tickli.secrets)"
+    else
+        echo "  (no credentials found - create ~/.dotfiles/.tickli.secrets)"
+    fi
 fi
