@@ -1,8 +1,33 @@
+#!/usr/bin/env bash
+
 echo "Setting up symlinks..."
 ln -sf ~/.dotfiles/gitconfig/.gitconfig ~/.gitconfig
 ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/zsh/.zprofile ~/.zprofile
 ln -sf ~/.dotfiles/taskwarrior/.taskrc ~/.taskrc
+
+mkdir -p ~/.task
+
+setup_tw_hooks_symlink() {
+    local source_dir="$HOME/.dotfiles/taskwarrior/hooks"
+    local target_dir="$HOME/.task/hooks"
+
+    # Guard Clause: If it's a real directory AND is not empty, abort to prevent data loss
+    if [ -d "$target_dir" ] && [ ! -L "$target_dir" ] && [ -n "$(ls -A "$target_dir")" ]; then
+        echo "Warning: $target_dir is not empty. Skipping hooks symlink."
+        return
+    fi
+
+    # Clean up: If it's an empty, real directory, remove it safely
+    if [ -d "$target_dir" ] && [ ! -L "$target_dir" ]; then
+        rmdir "$target_dir"
+    fi
+
+    ln -sf "$source_dir" "$target_dir"
+}
+
+setup_tw_hooks_symlink
+
 echo "Symlinks created."
 
 source ~/.dotfiles/scripts/build_helpers.sh
