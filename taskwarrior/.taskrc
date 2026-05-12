@@ -109,3 +109,7 @@ context.Training.read=project:Training
 context.Training.write=project:Training
 context.Misc.read=project:Misc
 context.Misc.write=project:Misc
+context.CI.read=project:CI
+context.CI.write=project:CI
+context.F_M.read=project:F&M
+context.F_M.write=project:F&M
