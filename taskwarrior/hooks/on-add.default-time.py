@@ -14,7 +14,7 @@ TW_FORMAT = "%Y%m%dT%H%M%SZ"
 
 def process_task(task):
     # Check due dates, but also wait, scheduled, or until dates if you use them
-    for field in ['due', 'wait', 'scheduled', 'until']:
+    for field in ['due', 'scheduled', 'until']:
         if field in task:
             # 1. Parse the UTC time string from Taskwarrior
             utc_dt = datetime.strptime(task[field], TW_FORMAT)
