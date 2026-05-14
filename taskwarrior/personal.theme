@@ -1,0 +1,27 @@
+# Personal taskwarrior theme.
+#   Foreground = time pressure (overdue / today / soon / future).
+#   Background = importance     (H / M / L priority).
+# Loaded from ~/.dotfiles/taskwarrior/.taskrc via `include`.
+
+# Calendar-day window for the "due soon" colour rule.
+# TaskWarrior has no working-day arithmetic, so this is set to 4 so that on
+# Thursdays and Fridays tasks due the following Monday/Tuesday still register
+# as "soon". The trade-off is that Mon-Wed will also treat the next 4 calendar
+# days as "soon" rather than 2.
+due=4
+
+# --- Time pressure (foreground) -------------------------------------------
+color.overdue=bold red
+color.due.today=color39
+color.due=color255
+
+# --- Importance (background) ----------------------------------------------
+# The foreground colour declared here only takes effect for tasks that don't
+# match any time rule above (i.e. due > 4 days, or no due date)
+color.uda.priority.H=gray11 on color58
+color.uda.priority.M=gray11
+color.uda.priority.L=gray11 on color236
+
+# --- Tags -----------------------------------------------------------------
+color.tag.blocked=color13
+color.tag.WAITING=color13
