@@ -10,18 +10,21 @@
 # days as "soon" rather than 2.
 due=4
 
-# --- Time pressure (foreground) -------------------------------------------
-color.overdue=bold red
-color.due.today=color39
+# --- Urgency (foreground) -------------------------------------------------
+color.overdue=rgb511
+color.due.today=rgb145
 color.due=color255
 
 # --- Importance (background) ----------------------------------------------
 # The foreground colour declared here only takes effect for tasks that don't
 # match any time rule above (i.e. due > 4 days, or no due date)
-color.uda.priority.H=gray11 on color58
+color.uda.priority.H=gray11 on rgb001
 color.uda.priority.M=gray11
 color.uda.priority.L=gray11 on color236
 
 # --- Tags -----------------------------------------------------------------
 color.tag.blocked=color13
 color.tag.WAITING=color13
+
+# --- State ----------------------------------------------------------------
+color.active=rgb000 on rgb420
