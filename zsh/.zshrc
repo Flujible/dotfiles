@@ -174,3 +174,9 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # Added by Antigravity
 export PATH="/Users/gpalmer-bryant/.antigravity/antigravity/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/gpalmer-bryant/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gpalmer-bryant/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/gpalmer-bryant/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/gpalmer-bryant/google-cloud-sdk/completion.zsh.inc'; fi

@@ -1,3 +1,7 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/gpalmer-bryant/.docker/bin"
+# End of Docker Desktop section.
+
 ######################################################################
 #
 # Env var setup
@@ -62,3 +66,21 @@ if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
 else
     print "Could not find gcloud completion.zsh.inc"
 fi
+
+######################################################################
+#
+# Android development
+#
+######################################################################
+
+# JDK shipped with Android Studio (the same JDK Android Studio itself
+# uses for Gradle, so behaviour matches inside/outside the IDE)
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# Android SDK location (ANDROID_HOME is legacy, ANDROID_SDK_ROOT is current — set both for compatibility)
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+
+# Add `emulator` to PATH (adb/platform-tools already added above)
+export PATH="$ANDROID_HOME/emulator:$PATH"
