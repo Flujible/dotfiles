@@ -226,3 +226,5 @@ function tw-remove-dependencies {
 
     echo "Removed dependencies from ${pink_bold_style}$count${reset_colour} tasks."
 }
+
+alias tw-standup="timew summary yesterday"
