@@ -135,6 +135,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Keep base as conda bootstrap only; use py314 as the default working env.
+export CONDA_AUTO_ACTIVATE_BASE=false
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/gpalmer-bryant/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -153,6 +156,10 @@ if [ -f "/Users/gpalmer-bryant/miniforge3/etc/profile.d/mamba.sh" ]; then
     . "/Users/gpalmer-bryant/miniforge3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
+
+if [[ -n "${CONDA_EXE:-}" ]]; then
+    conda activate py314 2>/dev/null
+fi
 
 
 autoload -U +X bashcompinit && bashcompinit
