@@ -1,6 +1,7 @@
 # [Created by task 3.4.1 5/17/2025 10:52:52]
 data.location=/Users/gpalmer-bryant/.task
-default.project=Misc
+default.project=MC
+default.due=today
 news.version=3.4.1
 
 # To use the default location of the XDG directories,
@@ -37,34 +38,12 @@ uda.taskwarrior-tui.shortcuts.1=~/.dotfiles/taskwarrior/task_wait_1h.sh
 uda.taskwarrior-tui.shortcuts.2=~/.dotfiles/taskwarrior/task_wait_3.5h.sh
 uda.taskwarrior-tui.shortcuts.3=~/.dotfiles/taskwarrior/task_wait_1d.sh
 
-
 report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
 report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 
 verbose=blank,footnote,label,new-id,new-uuid,affected,edit,special,project,sync,override,unwait,context
-
-context.Certs.read=project:Certs
-context.Certs.write=project:Certs
-context.JiraBot.read=project:JiraBot
-context.JiraBot.write=project:JiraBot
-context.ManageConnect.read=project:ManageConnect
-context.ManageConnect.write=project:ManageConnect
-context.MentalHealth.read=project:MentalHealth
-context.MentalHealth.write=project:MentalHealth
-context.Obsidian.read=project:Obsidian
-context.Obsidian.write=project:Obsidian
-context.Retro.read=project:Retro
-context.Retro.write=project:Retro
-context.SEF.read=project:SEF
-context.SEF.write=project:SEF
-context.TW.read=project:TW
-context.TW.write=project:TW
-context.Billing.read=project:Billing
-context.Billing.write=project:Billing
-context.Exeter.read=project:Exeter
-context.Exeter.write=project:Exeter
 
 urgency.blocking.coefficient=1
 urgency.blocked.coefficient=-0.1
@@ -78,33 +57,19 @@ urgency.uda.project.Training.coefficient=-1.0
 urgency.uda.project.Personal.coefficient=-1.0
 urgency.uda.project.TeamStuff.coefficient=-1.0
 
-context.Belron.read=project:Belron
-context.Belron.write=project:Belron
-context.NaturalEngland.read=project:NaturalEngland
-context.NaturalEngland.write=project:NaturalEngland
-context.PE.read=project:PE
-context.PE.write=project:PE
 context.TeamStuff.read=project:TeamStuff
 context.TeamStuff.write=project:TeamStuff
-context.BTP.read=project:BTP
-context.BTP.write=project:BTP
-context.Synlab.read=project:Synlab
-context.Synlab.write=project:Synlab
 context.HR.read=project:HR
 context.HR.write=project:HR
-context.FortnumMason.read=project:FortnumMason
-context.FortnumMason.write=project:FortnumMason
-context.Unipart.read=project:Unipart
-context.Unipart.write=project:Unipart
-context.InvoiceAcq.read=project:InvoiceAcq
-context.InvoiceAcq.write=project:InvoiceAcq
 context.Personal.read=project:Personal
 context.Personal.write=project:Personal
 context.Training.read=project:Training
 context.Training.write=project:Training
 context.Misc.read=project:Misc
 context.Misc.write=project:Misc
-context.CI.read=project:CI
-context.CI.write=project:CI
-context.F_M.read=project:F&M
-context.F_M.write=project:F&M
+context.JiraBot.read=project:JiraBot
+context.JiraBot.write=project:JiraBot
+context.MC.read=project:MC
+context.MC.write=project:MC
+context.Obsidian.read=project:Obsidian
+context.Obsidian.write=project:Obsidian
